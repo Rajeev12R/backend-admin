@@ -1,0 +1,70 @@
+/* Main container for loader */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  background-color: black;
+  overflow: hidden;
+}
+
+/* Image styling */
+.loader-container img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: relative;
+  z-index: 1; /* Image layer below the spinner */
+}
+
+/* Bounce loader styling */
+.bounce-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Spinner layer above the image */
+}
+
+.bounce-loader div {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #d3d3d3;
+  animation: bounce 0.6s infinite alternate, color-change 0.6s infinite alternate;
+}
+
+.bounce-loader div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bounce-loader div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Animations */
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #84A168;
+  }
+  50% {
+    background-color: #B8D6BE;
+  }
+  100% {
+    background-color: #2A6A37;
+  }
+}
